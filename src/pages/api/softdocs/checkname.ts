@@ -15,6 +15,7 @@ export default function handler(
 ) {
   logtail.log("checkname.ts: handler() called");
   logtail.info("req", req);
+  logtail.flush();
   if (req.method === "GET") {
     // validate body
     if (!req.body.name) {

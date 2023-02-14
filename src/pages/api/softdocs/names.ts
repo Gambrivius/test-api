@@ -15,6 +15,9 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
+  logtail.log("names.ts: handler() called");
+  logtail.info("req", req);
+  logtail.flush();
   if (req.method === "GET") {
     res.status(200).json(namesDb);
   } else if (req.method === "POST") {
