@@ -13,7 +13,6 @@ export default function handler(
 ) {
   console.log("checkname.ts: handler() called");
   console.log("body", req.body);
-  console.log(req.query);
 
   // check if name is in db
   const approved = namesDb.names.includes(req.body.name.toUpperCase());
