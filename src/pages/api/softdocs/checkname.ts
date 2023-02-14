@@ -1,6 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { namesDb } from "../../../fakedb";
+const { Logtail } = require("@logtail/node");
+const logtail = new Logtail("sRYNwWYpHW39ELZ1dkTUfnrK");
 
 type ResponseData = {
   approved: boolean;
@@ -11,6 +13,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
+  logtail.log("checkname.ts: handler() called");
+  logtail.info("req", req);
   if (req.method === "GET") {
     // validate body
     if (!req.body.name) {

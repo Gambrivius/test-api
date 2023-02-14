@@ -1,3 +1,6 @@
+const { Logtail } = require("@logtail/node");
+const logtail = new Logtail("sRYNwWYpHW39ELZ1dkTUfnrK");
+
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { namesDb } from "../../../fakedb";
