@@ -19,7 +19,7 @@ export default function handler(
     }
 
     // check if name is in db
-    const approved = namesDb.names.includes(req.body.name);
+    const approved = namesDb.names.includes(req.body.name.toUpperCase());
     res.status(200).json({ approved });
   }
 }

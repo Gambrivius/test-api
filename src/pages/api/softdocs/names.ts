@@ -22,7 +22,7 @@ export default function handler(
     }
 
     // add name to db
-    namesDb.names.push(req.body.name);
+    namesDb.names.push(req.body.name.toUpperCase());
     res.status(200).json(namesDb);
   }
 }

@@ -1,3 +1,3 @@
 export const namesDb = {
-  names: ["Chris", "Mike", "Josh", "Captain Underpants", "Sam"],
+  names: ["CHRIS", "MIKE", "JOSH", "CAPTAIN UNDERPANTS"],
 };
