@@ -3,8 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { namesDb } from "../../../fakedb";
 
 type ResponseData = {
-  names?: string[];
-  error?: string;
+  approved: boolean;
 };
 
 // get and post request handler
@@ -13,16 +12,14 @@ export default function handler(
   res: NextApiResponse<ResponseData>
 ) {
   if (req.method === "GET") {
-    res.status(200).json(namesDb);
-  } else if (req.method === "POST") {
-    // validate params
+    // validate body
     if (!req.body.name) {
-      res.status(400).json({ error: "name is required" });
+      res.status(400).json({ approved: false });
       return;
     }
 
-    // add name to db
-    namesDb.names.push(req.body.name);
-    res.status(200).json(namesDb);
+    // check if name is in db
+    const approved = namesDb.names.includes(req.body.name);
+    res.status(200).json({ approved });
   }
 }
