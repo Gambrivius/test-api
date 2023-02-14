@@ -13,7 +13,7 @@ export default function handler(
 ) {
   console.log("checkname.ts: handler() called");
   console.log("req", req);
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     // validate body
     if (!req.body.name) {
       res.status(400).json({ approved: false });
