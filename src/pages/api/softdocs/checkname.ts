@@ -9,21 +9,14 @@ type ResponseData = {
 // get and post request handler
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  res: NextApiResponse<String>
 ) {
   console.log("checkname.ts: handler() called");
   console.log("body", req.body);
-  if (req.method === "POST") {
-    // validate body
-    if (!req.body.name) {
-      console.log("checkname.ts: handler() called with no name");
-      res.status(200).json({ actor: "claponsie@kvcc.edu" });
-      return;
-    }
+  console.log(req.query);
 
-    // check if name is in db
-    const approved = namesDb.names.includes(req.body.name.toUpperCase());
-    //res.status(200).json({ approved });
-    res.status(200).json({ actor: "claponsie@kvcc.edu" });
-  }
+  // check if name is in db
+  const approved = namesDb.names.includes(req.body.name.toUpperCase());
+  //res.status(200).json({ approved });
+  res.status(200).json("claponsie@kvcc.edu");
 }
