@@ -1,8 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { namesDb } from "../../../fakedb";
-const { Logtail } = require("@logtail/node");
-const logtail = new Logtail("sRYNwWYpHW39ELZ1dkTUfnrK");
+import { namesDb, logtail } from "../../../fakedb";
 
 type ResponseData = {
   approved: boolean;
