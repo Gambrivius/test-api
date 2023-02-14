@@ -17,13 +17,13 @@ export default function handler(
     // validate body
     if (!req.body.name) {
       console.log("checkname.ts: handler() called with no name");
-      res.status(400).send("claponsie@kvcc.edu");
+      res.status(400).json("claponsie@kvcc.edu");
       return;
     }
 
     // check if name is in db
     const approved = namesDb.names.includes(req.body.name.toUpperCase());
     //res.status(200).json({ approved });
-    res.status(200).send("claponsie@kvcc.edu");
+    res.status(200).json("claponsie@kvcc.edu");
   }
 }
